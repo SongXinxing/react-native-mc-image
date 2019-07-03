@@ -1,0 +1,18 @@
+{
+  "name": "rn-mc-image",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-native": "^0.59.5",
+    "react-native-fast-image": "^5.1.2"
+  },
+  "author": "宋新星",
+  "license": "ISC"
+}
