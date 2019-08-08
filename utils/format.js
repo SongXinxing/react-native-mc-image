@@ -2,6 +2,7 @@ import { Platform } from 'react-native';
 import Ratio from './ratio';
 
 const imgFormatFilter = (src, imgWidth = 0, imgHeight = 0) => {
+  if (typeof src !== 'string' || src.indexOf('/resize,m_fixed') !== -1) return src;
   // 阿里云:前端主动添加size、format属性
   const formatList = [];
   if (imgWidth !== 0 || imgHeight !== 0) {
