@@ -21,6 +21,7 @@ function MCImageBase ({
   source,
   forwardedRef,
   children,
+  mode,
   ...props
 }) {
   if (typeof source === 'string') {
@@ -32,7 +33,7 @@ function MCImageBase ({
   if (typeof source === 'object' && source !== null && preUrl) {
     let { uri = '' } = source
     if (uri.indexOf('http') === -1) {
-      source.uri = imgFormatFilter(preUrl + uri, ossWidth, ossHeight)
+      source.uri = imgFormatFilter(preUrl + uri, ossWidth, ossHeight, mode)
     }
   }
   return (

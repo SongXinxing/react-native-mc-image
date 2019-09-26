@@ -21,6 +21,14 @@ declare namespace MCImage {
         type center = 'center'
     }
 
+    namespace mode {
+        type fixed = 'fixed'
+        type lfit = 'lfit'
+        type mfit = 'mfit'
+        type fill = 'fill'
+        type pad = 'pad'
+    }
+
     namespace cacheControl {
         type cacheOnly = 'cacheOnly'
         type immutable = 'immutable'
@@ -37,6 +45,13 @@ declare namespace MCImage {
         | MCImage.resizeMode.cover
         | MCImage.resizeMode.stretch
         | MCImage.resizeMode.center
+    
+    export type mode =
+        | MCImage.mode.fixed
+        | MCImage.mode.lfit
+        | MCImage.mode.mfit
+        | MCImage.mode.fill
+        | MCImage.mode.pad
 
     export type Cache =
         | MCImage.cacheControl.cacheOnly
@@ -83,6 +98,7 @@ export interface OnProgressEvent {
 export interface MCImageProperties {
     source: MCImageSource | number | string
     resizeMode?: MCImage.ResizeMode
+    mode?: MCImage.mode
     fallback?: boolean
     ossWidth?: number
     ossHeight?: number
@@ -125,6 +141,14 @@ interface MCImageStatic extends React.ComponentClass<MCImageProperties> {
         cover: MCImage.resizeMode.cover
         stretch: MCImage.resizeMode.stretch
         center: MCImage.resizeMode.center
+    }
+
+    mode: {
+        fixed: MCImage.mode.fixed
+        lfit: MCImage.mode.lfit
+        mfit: MCImage.mode.mfit
+        fill: MCImage.mode.fill
+        pad: MCImage.mode.pad
     }
 
     priority: {
