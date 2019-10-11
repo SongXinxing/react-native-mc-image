@@ -17,7 +17,7 @@ let baseUrl = null
 function MCImageBase ({
   ossWidth,
   ossHeight,
-  ossUrl,
+  ossUrl = baseUrl,
   source,
   forwardedRef,
   children,
@@ -28,7 +28,7 @@ function MCImageBase ({
       uri: source
     }
   }
-  let preUrl = ossUrl || baseUrl
+  let preUrl = ossUrl
   if (typeof source === 'object' && source !== null && preUrl) {
     let { uri = '' } = source
     if (uri.indexOf('http') === -1) {
