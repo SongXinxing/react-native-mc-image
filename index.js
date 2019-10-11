@@ -106,9 +106,7 @@ MCImage.propTypes = {
   onLoad: PropTypes.func,
   onError: PropTypes.func,
   onLoadEnd: PropTypes.func,
-  fallback: PropTypes.bool,
-  ossWidth: PropTypes.number,
-  ossHeight: PropTypes.number
+  fallback: PropTypes.bool
 }
 
 export function MCImageInitBaseUrl (url) {
