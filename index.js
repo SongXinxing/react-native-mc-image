@@ -14,6 +14,8 @@ import imgFormatFilter from './utils/format'
 
 let baseUrl = null
 
+let MAP = null
+
 function MCImageBase ({
   ossWidth,
   ossHeight,
@@ -25,6 +27,9 @@ function MCImageBase ({
   ...props
 }) {
   if (typeof source === 'string') {
+    if (MAP && MAP[source]) {
+      source = MAP[source]
+    }
     source = {
       uri: source
     }
@@ -32,7 +37,7 @@ function MCImageBase ({
   let preUrl = ossUrl
   if (typeof source === 'object' && source !== null && preUrl) {
     let { uri = '' } = source
-    if (uri.indexOf('http') === -1) {
+    if (typeof uri === 'string' && uri.indexOf('http') === -1) {
       source.uri = imgFormatFilter(preUrl + uri, ossWidth, ossHeight, mode)
     }
   }
@@ -109,7 +114,11 @@ MCImage.propTypes = {
   fallback: PropTypes.bool
 }
 
-export function MCImageInitBaseUrl (url) {
+export function MCImageInitBaseUrl (url, map) {
+  if (typeof map !== 'object') {
+    map = null
+  }
+  MAP = map
   baseUrl = url
 }
 
